@@ -3,7 +3,7 @@
 # 🔗 Shortify – Scalable URL Shortening API & Discord Bot Integration
 
 **Shortify** is a modular, API‑first URL‑shortening service designed for multi‑platform consumption.  
-This repository (`shortify-backend`) houses the **backend API** and EJS‑powered web dashboard.  
+This repository **(`shortify-backend`)** houses the **backend API** and EJS‑powered web dashboard.  
 
 It is consumed by two clients:
 
