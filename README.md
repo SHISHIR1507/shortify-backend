@@ -3,12 +3,12 @@
 # 🔗 Shortify – Scalable URL Shortening API & Discord Bot Integration
 
 **Shortify** is a modular, API‑first URL‑shortening service designed for multi‑platform consumption.  
-This repository **(`shortify-backend`)** houses the **backend API** and EJS‑powered web dashboard.  
+This repository **(`shortify-backend`)** houses the **backend API** and Embedded JavaScript (EJS)‑powered web dashboard.  
 
 It is consumed by two clients:
 
 - 🖥️ **Web Client** (EJS views)  
-- 🤖 **Discord Bot**: [`shortify-discord-bot`](https://github.com/your-username/shortify-discord-bot)  
+- 🤖 **Discord Bot**: [`shortify-discord-bot`](https://github.com/SHISHIR1507/shortify-discord-bot)  
 
 ---
 
@@ -17,7 +17,7 @@ It is consumed by two clients:
 Use any HTTP client (browser, `fetch`, Discord bot, mobile) against:
 
 ```js
-const BASE = "https://your-backend.onrender.com";
+const BASE = "https://shortify-backend-f3lk.onrender.com";
 
 // 1. Shorten a URL
 fetch(`${BASE}/url`, {
@@ -106,6 +106,7 @@ MONGODB_URI=<your_mongo_URI>
 DB_NAME=shortify
 ACCESS_TOKEN_SECRET=<strong_jwt_secret>
 ACCESS_TOKEN_EXPIRY=1d
+BOT_SECRET_KEY=<your_secret_key>
 ```
 
 3.Run
@@ -120,7 +121,7 @@ node ../shortify-discord-bot/command.js
 ```
 
 ## 📦 Deployment on Render
-Push this repo to GitHub (shortify-backend).
+
 
 On Render.com, create a Web Service:
 
@@ -131,8 +132,9 @@ On Render.com, create a Web Service:
 Add your Environment Variables in the Render dashboard (same keys as your local .env).
 
 Deploy and note your live URL:
+
 ```
-https://shortify-backend.onrender.com
+https://shortify-backend-f3lk.onrender.com
 ```
 
 ## 🤝 Related Projects
