@@ -7,8 +7,8 @@ const config={
     DB_NAME: process.env.DB_NAME || 'url_shortener',
     ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET || 'your_access_token_secret',
     ACCESS_TOKEN_EXPIRY: process.env.ACCESS_TOKEN_EXPIRY || '1d',
-    REFRESH_TOKEN_SECRET: process.env.REFRESH_TOKEN_SECRET || 'your_refresh_token_secret',
-    REFRESH_TOKEN_EXPIRY: process.env.REFRESH_TOKEN_EXPIRY || '10d'
+    BOT_SECRET_KEY: process.env.BOT_SECRET_KEY
+
 }
 
 export {config}; // 3. Exports the config object so it can be imported elsewhere (like in index.js).
