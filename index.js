@@ -17,6 +17,9 @@ dotenv.config();
 // Initialize the Express application
 const app = express();
 
+// Setting EJS as the view engine
+app.set('view engine', 'ejs'); 
+app.set("views",path.resolve("./views")); // Setting the views directory
 // Middleware to parse JSON bodies
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: false })); // Middleware to parse URL-encoded bodies
@@ -38,9 +41,6 @@ app.use('/', staticRouter);
 app.use('/user', userRouter); // Use the user router for handling requests to the /user endpoint
 
 
-// Setting EJS as the view engine
-app.set('view engine', 'ejs'); 
-app.set("views",path.resolve("./views")); // Setting the views directory
 app.get("/test",async(req,res)=>{
     const allUrls=await URL.find({});
     res.render("home.ejs");
@@ -72,6 +72,9 @@ app.get('/url/:shortUrl', async(req, res) => {
 })
 app.use('/url',restrictTo(["NORMAL"]),urlRouter);
 
+app.use((req, res) => {
+  res.status(404).send("404 - Page Not Found");
+});
 
 app.listen(config.PORT, () => {
   console.log(`Server is running on port ${config.PORT}`);
