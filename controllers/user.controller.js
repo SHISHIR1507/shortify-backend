@@ -6,14 +6,18 @@ import { setUser } from '../service/auth.service.js'; // Importing the setUser f
 const registerUser = async (req, res) => {
     console.log("Login route hit");
 
-    const {userName , email , password}= req.body
+    const {userName , email , password , role ="NORMAL"}= req.body
     if (!userName || !email || !password) {
         return res.status(400).json({ error: "All fields are required" });
     }
-    const allUsers= await USER.create({userName, email, password});
-    return res.redirect("/");
-
-}
+    try {
+        const newUser = await USER.create({ userName, email, password, role });
+        return res.redirect("/login"); // Redirect to login page after registration
+    } catch (error) {
+        console.error("Error creating user:", error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+};
 
 const loginUser = async (req, res) => {
     const {email,password}=req.body

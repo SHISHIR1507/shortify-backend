@@ -6,7 +6,7 @@ dotenv.config();
 
 function setUser(user) {
     return jwt.sign(
-        { id: user._id, email: user.email },
+        { id: user._id, email: user.email, role:user.role },
         config.ACCESS_TOKEN_SECRET,
         { expiresIn: config.ACCESS_TOKEN_EXPIRY }
     );
